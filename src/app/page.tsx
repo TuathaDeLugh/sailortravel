@@ -3,8 +3,8 @@ import styles from './page.module.css'
 
 export default function Home() {
   return (
-<div className='text-rose-500 text-2xl'>
-  Hello Sailor Tarvel!
+<div className='text-blue-500 text-2xl'>
+  Hello,  This is  Sailor Tarvel!
 </div>    
   )
 }
