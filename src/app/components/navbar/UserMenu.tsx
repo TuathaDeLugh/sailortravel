@@ -11,10 +11,10 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 import useRentModal from "@/app/hooks/useRentModal";
-import { SafeUser } from "@/app/types";
+import { User } from "@prisma/client";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null
+  currentUser?: User | null
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({
@@ -119,7 +119,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   onClick={() => router.push('/properties')}
                 />
                 <MenuItem 
-                  label="Airbnb your home" 
+                  label="Sailor Travel home" 
                   onClick={rentModal.onOpen}
                 />
                 <hr />
