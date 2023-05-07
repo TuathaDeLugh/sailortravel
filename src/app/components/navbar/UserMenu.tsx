@@ -11,10 +11,10 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 import useRentModal from "@/app/hooks/useRentModal";
-import { User } from "@prisma/client";
+import { SafeUser } from "@/app/types";
 
 interface UserMenuProps {
-  currentUser?: User | null
+  currentUser?: SafeUser | null
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({
