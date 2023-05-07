@@ -14,13 +14,13 @@ import { useMemo, useState } from "react";
 import useRentModal from '@/app/hooks/useRentModal';
 
 import Modal from "./Modal";
+import Heading from '../Heading';
+import Input from '../inputs/Input';
+import { categories } from '../navbar/Catagories';
+import CategoryInput from '../inputs/CategoryInput';
+import CountrySelect from '../inputs/CountrySelect';
 // import Counter from "../inputs/Counter";
-// import CategoryInput from '../inputs/CategoryInput';
-// import CountrySelect from "../inputs/CountrySelect";
-// import { categories } from '../navbar/Categories';
 // import ImageUpload from '../inputs/ImageUpload';
-// import Input from '../inputs/Input';
-// import Heading from '../Heading';
 
 enum STEPS {
   CATEGORY = 0,
@@ -68,9 +68,9 @@ const RentModal = () => {
   const bathroomCount = watch('bathroomCount');
   const imageSrc = watch('imageSrc');
 
-//   const Map = useMemo(() => dynamic(() => import('../Map'), { 
-//     ssr: false 
-//   }), [location]);
+  const Map = useMemo(() => dynamic(() => import('../Map'), { 
+    ssr: false 
+  }), [location]);
 
 
   const setCustomValue = (id: string, value: any) => {
@@ -114,10 +114,10 @@ const RentModal = () => {
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.PRICE) {
-      return 'Create'
+      return 'Create';
     }
 
-    return 'Next'
+    return 'Next';
   }, [step]);
 
   const secondaryActionLabel = useMemo(() => {
@@ -130,7 +130,7 @@ const RentModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      {/* <Heading
+      <Heading
         title="Which of these best describes your place?"
         subtitle="Pick a category"
       />
@@ -146,23 +146,23 @@ const RentModal = () => {
       >
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
+            
             <CategoryInput
-              onClick={(category) => 
-                setCustomValue('category', category)}
+              onClick={(category) => setCustomValue('category', category)}
               selected={category === item.label}
               label={item.label}
               icon={item.icon}
             />
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   )
 
   if (step === STEPS.LOCATION) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        {/* <Heading
+        <Heading
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
@@ -170,7 +170,7 @@ const RentModal = () => {
           value={location} 
           onChange={(value) => setCustomValue('location', value)} 
         />
-        <Map center={location?.latlng} /> */}
+        <Map center={location?.latlng} />
       </div>
     );
   }
@@ -209,11 +209,11 @@ const RentModal = () => {
   if (step === STEPS.IMAGES) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        {/* <Heading
+        <Heading
           title="Add a photo of your place"
           subtitle="Show guests what your place looks like!"
         />
-        <ImageUpload
+        {/* <ImageUpload
           onChange={(value) => setCustomValue('imageSrc', value)}
           value={imageSrc}
         /> */}
@@ -224,7 +224,7 @@ const RentModal = () => {
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        {/* <Heading
+        <Heading
           title="How would you describe your place?"
           subtitle="Short and sweet works best!"
         />
@@ -244,7 +244,7 @@ const RentModal = () => {
           register={register}
           errors={errors}
           required
-        /> */}
+        />
       </div>
     )
   }
@@ -252,7 +252,7 @@ const RentModal = () => {
   if (step === STEPS.PRICE) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        {/* <Heading
+        <Heading
           title="Now, set your price"
           subtitle="How much do you charge per night?"
         />
@@ -265,7 +265,7 @@ const RentModal = () => {
           register={register}
           errors={errors}
           required
-        /> */}
+        />
       </div>
     )
   }
@@ -274,7 +274,7 @@ const RentModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={rentModal.isOpen}
-      title="Airbnb your home!"
+      title="Sailor Travel your home!"
       actionLabel={actionLabel}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
