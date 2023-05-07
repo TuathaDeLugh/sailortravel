@@ -5,15 +5,13 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useRentModal from "@/app/hooks/useRentModal";
+import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
-import { SafeUser } from "../../types";
-import useLoginModal from "../../hooks/useLoginModal";
-import useRegisterModal from "../../hooks/useRegisterModal";
-import useRentModal from "../../hooks/useRentModal";
-;
 
 interface UserMenuProps {
   currentUser?: SafeUser | null
@@ -60,7 +58,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             cursor-pointer
           "
         >
-           Sailor Travel home
+          Sailor Travel Your Home
         </div>
         <div 
         onClick={toggleOpen}
@@ -121,7 +119,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   onClick={() => router.push('/properties')}
                 />
                 <MenuItem 
-                  label="Sailor Travel home" 
+                  label="Sailor Travel your home" 
                   onClick={rentModal.onOpen}
                 />
                 <hr />

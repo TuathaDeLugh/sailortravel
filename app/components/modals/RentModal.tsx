@@ -11,16 +11,16 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation';
 import { useMemo, useState } from "react";
 
+import useRentModal from '@/app/hooks/useRentModal';
 
 import Modal from "./Modal";
-import Heading from '../Heading';
-import Input from '../inputs/Input';
-import { categories } from '../navbar/Catagories';
-import CategoryInput from '../inputs/CategoryInput';
-import CountrySelect from '../inputs/CountrySelect';
 import Counter from "../inputs/Counter";
+import CategoryInput from '../inputs/CategoryInput';
+import CountrySelect from "../inputs/CountrySelect";
+import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
-import useRentModal from '../../hooks/useRentModal';
+import Input from '../inputs/Input';
+import Heading from '../Heading';
 
 enum STEPS {
   CATEGORY = 0,
@@ -114,10 +114,10 @@ const RentModal = () => {
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.PRICE) {
-      return 'Create';
+      return 'Create'
     }
 
-    return 'Next';
+    return 'Next'
   }, [step]);
 
   const secondaryActionLabel = useMemo(() => {
@@ -146,9 +146,9 @@ const RentModal = () => {
       >
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
-            
             <CategoryInput
-              onClick={(category) => setCustomValue('category', category)}
+              onClick={(category) => 
+                setCustomValue('category', category)}
               selected={category === item.label}
               label={item.label}
               icon={item.icon}

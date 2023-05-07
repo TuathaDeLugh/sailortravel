@@ -1,4 +1,3 @@
-// tutorial used this but I don't rcive hydration error so not imported
 'use client';
 
 import React, { useState, useEffect } from 'react';

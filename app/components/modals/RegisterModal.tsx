@@ -12,14 +12,13 @@ import {
   useForm
 } from "react-hook-form";
 
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
-
-import Button from "../Button";
 import Modal from "./Modal";
-import Heading from "../Heading";
 import Input from "../inputs/Input";
-import useRegisterModal from "../../hooks/useRegisterModal";
-import useLoginModal from "../../hooks/useLoginModal";
+import Heading from "../Heading";
+import Button from "../Button";
 
 const RegisterModal= () => {
   const registerModal = useRegisterModal();
@@ -65,7 +64,7 @@ const RegisterModal= () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome to Sailor Travel"
+        title="Welcome to Airbnb"
         subtitle="Create an account!"
       />
       <Input

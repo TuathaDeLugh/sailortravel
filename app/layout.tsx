@@ -1,47 +1,48 @@
-import './globals.css'
 import { Nunito } from 'next/font/google'
-import { Inter } from 'next/font/google'
-import Navbar from './components/navbar/Navbar'
-import RegisterModal from './components/Modal/RegisterModel'
-import ToasterProvider from './providers/ToasterProviders'
-import ClientOnly from './components/ClientOnly'
-import LoginModal from './components/Modal/LoginModel'
-import getCurrentUser from './actions/getCurrentUser'
-import RentModal from './components/Modal/RentModal'
 
-const inter = Inter({ subsets: ['latin'] })
+import Navbar from '@/app/components/navbar/Navbar';
+import LoginModal from '@/app/components/modals/LoginModal';
+import RegisterModal from '@/app/components/modals/RegisterModal';
+import SearchModal from '@/app/components/modals/SearchModal';
+import RentModal from '@/app/components/modals/RentModal';
+
+import ToasterProvider from '@/app/providers/ToasterProvider';
+
+import './globals.css'
+import ClientOnly from './components/ClientOnly';
+import getCurrentUser from './actions/getCurrentUser';
 
 export const metadata = {
   title: 'Sailor Travel',
-  description: 'The Next-Typescript app',
+  description: 'SAilor Travel',
 }
 
-const font  = Nunito ({
-  subsets:["latin"],
-})
+const font = Nunito({ 
+  subsets: ['latin'], 
+});
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const currentUSer = await getCurrentUser();
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
-
-        <ToasterProvider/>
-        <LoginModal/>
-        <RegisterModal/>
-        <RentModal/>
-        <Navbar currentUser={currentUSer}/>
+          <ToasterProvider />
+          <LoginModal />
+          <RegisterModal />
+          <SearchModal />
+          <RentModal />
+          <Navbar currentUser={currentUser} />
         </ClientOnly>
-        
-        
-        {children}
-        
-        </body>
+        <div className="pb-20 pt-28">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
