@@ -11,7 +11,6 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation';
 import { useMemo, useState } from "react";
 
-import useRentModal from '@/app/hooks/useRentModal';
 
 import Modal from "./Modal";
 import Heading from '../Heading';
@@ -21,6 +20,7 @@ import CategoryInput from '../inputs/CategoryInput';
 import CountrySelect from '../inputs/CountrySelect';
 import Counter from "../inputs/Counter";
 import ImageUpload from '../inputs/ImageUpload';
+import useRentModal from '../../hooks/useRentModal';
 
 enum STEPS {
   CATEGORY = 0,
