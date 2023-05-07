@@ -19,7 +19,8 @@ const Logo = () => {
         text-3xl
         font-sans
         font-bold
-          cursor-pointer">Sailor Travel</label>
+          cursor-pointer"
+          onClick={()=>router.push('/')}>Sailor Travel</label>
         </div> 
      );
 }
