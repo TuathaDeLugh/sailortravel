@@ -19,8 +19,8 @@ import Input from '../inputs/Input';
 import { categories } from '../navbar/Catagories';
 import CategoryInput from '../inputs/CategoryInput';
 import CountrySelect from '../inputs/CountrySelect';
-// import Counter from "../inputs/Counter";
-// import ImageUpload from '../inputs/ImageUpload';
+import Counter from "../inputs/Counter";
+import ImageUpload from '../inputs/ImageUpload';
 
 enum STEPS {
   CATEGORY = 0,
@@ -178,7 +178,7 @@ const RentModal = () => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        {/* <Heading
+        <Heading
           title="Share some basics about your place"
           subtitle="What amenitis do you have?"
         />
@@ -201,7 +201,7 @@ const RentModal = () => {
           value={bathroomCount}
           title="Bathrooms" 
           subtitle="How many bathrooms do you have?"
-        /> */}
+        />
       </div>
     )
   }
@@ -213,10 +213,10 @@ const RentModal = () => {
           title="Add a photo of your place"
           subtitle="Show guests what your place looks like!"
         />
-        {/* <ImageUpload
+        <ImageUpload
           onChange={(value) => setCustomValue('imageSrc', value)}
           value={imageSrc}
-        /> */}
+        />
       </div>
     )
   }
